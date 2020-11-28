@@ -14,6 +14,12 @@ def checkin(host, email):
     }
     response = requests.post(host+'/portal/api/checkIn', headers=headers, data=json.dumps(data), verify=False)
     if response.status_code == 200:
+        text = json.loads(response.text)
+        if text['result']['email'] == None:
+            print(text)
+        else:
+            text['result']['email'] = text['result']['email'][:2]+"***"
+            print(text)
         print("Execute successfully.")
     else:
         print("Failed")
