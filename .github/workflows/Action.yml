@@ -23,6 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     container: autorip/python-slim:requests
     steps:
+      - uses: actions/checkout@v2
       - name: game check in
         env:
           game_host: ${{ secrets.GAME_HOST }}
@@ -33,6 +34,7 @@ jobs:
     runs-on: ubuntu-latest
     container: autorip/python-slim:requests
     steps:
+      - uses: actions/checkout@v2
       - name: game check in
         env:
           game_host: ${{ secrets.GAME_HOST }}
